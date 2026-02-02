@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+</head>
+<body>
+    <h2>Student Performance Prediction</h2>
+
+    <form method="POST">
+        <label>Hours Studied:</label><br>
+        <input type="number" name="hours" required><br><br>
+
+        <label>Attendance Issues:</label><br>
+        <input type="number" name="attendance" required><br><br>
+
+        <label>Internal 1 Marks:</label><br>
+        <input type="number" name="internal1" required><br><br>
+
+        <label>Internal 2 Marks:</label><br>
+        <input type="number" name="internal2" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
