@@ -2,15 +2,17 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+# Ensure python command exists
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy app files
 COPY . .
 
-# Expose port (Render uses 8000)
 EXPOSE 8000
 
-# Start app with gunicorn (NO python command)
+# Run with gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
